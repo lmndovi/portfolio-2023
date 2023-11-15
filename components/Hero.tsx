@@ -5,8 +5,13 @@ import { Cursor, useTypewriter } from "react-simple-typewriter";
 import BackgroundCircles from "./BackgroundCircles";
 import Image from "next/image";
 import Navbar from "./Navbar";
+import { client } from "@/sanity/lib/client";
+import { PageInfo } from "@/typings";
 
-const Hero = () => {
+export default function Hero() {
+  // const pageInfo = await client.fetch<PageInfo[]>(`*[_type == "pageInfo"]`);
+  // console.log(pageInfo);
+
   const [text] = useTypewriter({
     words: [
       `Hey, I'm Lu Ndovi.`,
@@ -37,6 +42,4 @@ const Hero = () => {
       </div>
     </div>
   );
-};
-
-export default Hero;
+}

@@ -1,17 +1,25 @@
+"use client";
+
 import ContactForm from "@/components/ContactForm";
 import { PhoneIcon, MapPinIcon, EnvelopeIcon } from "@heroicons/react/20/solid";
 import React from "react";
+import { motion } from "framer-motion";
 
 const ContactPage = () => {
   return (
-    <div className="h-screen relative flex flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1.5 }}
+      className="h-screen relative flex flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center"
+    >
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
         Contact
       </h3>
       <div className="flex flex-col space-y-10 mt-28">
         <h4 className="text-3xl md:text-5xl font-semibold text-center mx-auto w-96 md:w-[600px]">
           Here to bring your ideas to life.{" "}
-          <span className="underline decoration-[#1B7DE5]/50">
+          <span className="underline decoration-[#1B7DE5]/50 underline-offset-4">
             Let&apos;s talk
           </span>
         </h4>
@@ -35,7 +43,7 @@ const ContactPage = () => {
           <ContactForm />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

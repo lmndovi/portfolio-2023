@@ -10,13 +10,20 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/vision": "^3.19.1",
+    "@tanstack/react-query": "^5.8.2",
+    "@tanstack/react-query-devtools": "^5.8.2",
     "framer-motion": "^10.16.4",
     "next": "14.0.1",
     "next-sanity": "^5.5.10",
     "react": "^18",
     "react-dom": "^18",
     "react-simple-typewriter": "^5.0.1",
-    "react-social-icons": "^6.4.0"
+    "react-social-icons": "^6.4.0",
+    "sanity": "^3.19.1",
+    "styled-components": "5.2",
+    "swr": "^2.2.4"
   },
   "devDependencies": {
     "@types/node": "^20",
