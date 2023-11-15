@@ -15,7 +15,20 @@ type Props = {
 };
 
 export default function Projects() {
-  const { data: projects, error } = useSWR('*[_type == "project"]', fetcher);
+  const { data: projects, error } = useSWR(
+    `*[_type == "project"] {
+  title,
+  linkToBuild,
+  summary,
+  image,
+  technologies[]-> {
+    title,
+    progress,
+    image
+  }
+}`,
+    fetcher
+  );
 
   return (
     <motion.div
@@ -41,12 +54,12 @@ export default function Projects() {
                 viewport={{ once: true }}
                 className="relative h-40 w-72 top-20 mb-5  md:h-60 md:w-96 xl:h-[400px] xl:w-[600px] mt-8"
               >
-                {/* <Image
+                <Image
                   src={urlForImage(project?.image).url()}
                   alt={project?.title}
                   className="rounded-md"
                   fill
-                /> */}
+                />
               </motion.div>
             </Link>
 
@@ -61,13 +74,13 @@ export default function Projects() {
               <div className="flex space-x-3 justify-center items-center">
                 {project?.technologies.map((technology) => (
                   <div key={technology._id} className="relative h-8 w-8">
-                    {/* <Image
+                    <Image
                       key={technology._id}
                       className="rounded-full"
                       src={urlForImage(technology?.image).url()}
                       alt={technology.title}
                       fill
-                    /> */}
+                    />
                   </div>
                 ))}
               </div>
