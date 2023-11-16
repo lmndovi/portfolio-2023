@@ -7,6 +7,7 @@ import { PageInfo } from "@/typings";
 import { client } from "@/sanity/lib/client";
 import useSWR from "swr";
 import { fetcher } from "@/utils/fetchPageInfo";
+import { urlForImage } from "@/sanity/lib/image";
 
 type Props = {
   pageInfo: PageInfo[];
@@ -33,12 +34,15 @@ export default function About() {
         viewport={{ once: true }}
         className="relative w-48 h-48 sm:h-48 sm:w-48 md:w-80 md:h-[450px] xl:w-[500px] xl:h-[520px] mt-32 md:mb-0 flex-shrink-0 xl:mt-32"
       >
-        <Image
-          src="/mum.jpg"
-          alt="Mum and I"
-          fill
-          className="object-cover rounded-full md:rounded-lg"
-        />
+        {pageInfo?.map((info, index) => (
+          <Image
+            key={info._id}
+            src={urlForImage(info?.profilePic).url()}
+            alt="Mum and I"
+            fill
+            className="object-cover rounded-full md:rounded-lg"
+          />
+        ))}
       </motion.div>
       <div className="space-y-6 px-0 md:px-10 md:mt-28 ">
         <h4 className="text-3xl font-semibold">
@@ -48,10 +52,6 @@ export default function About() {
         {pageInfo?.map((info, index) => (
           <p key={info._id} className="text-sm sm:text-base">
             {info.backgroundInformation}
-            {/* Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum
-          tempore repudiandae, delectus dignissimos maiores expedita. Autem,
-          minima qui. Numquam nostrum distinctio harum maiores incidunt! Quaerat
-          ex eos rem perferendis veniam. */}
           </p>
         ))}
       </div>

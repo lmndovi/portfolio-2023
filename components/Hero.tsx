@@ -50,7 +50,7 @@ export default function Hero() {
               <span className="mx-2">{text}</span>
               <Cursor cursorColor="blue" />
             </h1>
-            <div className="pt-6">
+            <div className="pt-60 z-50">
               <Navbar />
             </div>
           </div>

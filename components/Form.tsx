@@ -12,7 +12,7 @@ type ContactFormData = {
   message: string;
 };
 
-const ContactForm = () => {
+const Form = () => {
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
@@ -148,4 +148,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default Form;
