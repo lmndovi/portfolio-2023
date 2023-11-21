@@ -32,7 +32,7 @@ export default function About() {
         transition={{ duration: 1.2 }}
         whileInView={{ x: 0 }}
         viewport={{ once: true }}
-        className="relative w-48 h-48 sm:h-48 sm:w-48 md:w-80 md:h-[450px] xl:w-[500px] xl:h-[520px] mt-32 md:mb-0 flex-shrink-0 xl:mt-32"
+        className="relative w-48 h-48 sm:h-48 sm:w-48 md:w-80 md:h-[450px] xl:w-[500px] xl:h-[520px] mt-40 sm:mt-32 md:mb-0 flex-shrink-0 xl:mt-40"
       >
         {pageInfo?.map((info, index) => (
           <Image
@@ -44,7 +44,7 @@ export default function About() {
           />
         ))}
       </motion.div>
-      <div className="space-y-6 px-0 md:px-10 md:mt-28 ">
+      <div className="space-y-6 px-0 md:px-10 md:mt-28 max-h-[450px]">
         <h4 className="text-3xl font-semibold">
           A <span className="underline decoration-[#1B7DE5]/70">little</span>{" "}
           more about me

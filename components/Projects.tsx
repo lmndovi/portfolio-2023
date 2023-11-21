@@ -63,7 +63,7 @@ export default function Projects() {
               </motion.div>
             </Link>
 
-            <div className="pt-16 space-y-4 px-0 md:px-10 max-w-6xl">
+            <div className="pt-16 space-y-5 px-0 md:px-10 max-w-6xl">
               <h4 className="text-2xl font-semibold text-center">
                 <span className="underline decoration-[#1B7DE5]/80">
                   Case Study {index + 1} of {projects.length}:
@@ -71,23 +71,53 @@ export default function Projects() {
                 {project?.title}
               </h4>
               {/* Tech Used */}
-              <div className="flex space-x-3 justify-center items-center">
-                {project?.technologies.map((technology) => (
-                  <div key={technology._id} className="relative h-8 w-8">
-                    <Image
-                      key={technology._id}
-                      className="rounded-full"
-                      src={urlForImage(technology?.image).url()}
-                      alt={technology.title}
-                      fill
-                    />
-                  </div>
-                ))}
+              <div className="flex flex-col space-y-3 items-center justify-center">
+                <div className="flex">
+                  {project?.technologies
+                    .slice(0, project?.technologies.length / 2)
+                    .map((technology) => (
+                      <div
+                        key={technology._id}
+                        className="relative h-8 w-8 opacity-60"
+                      >
+                        <Image
+                          key={technology._id}
+                          className="rounded-full"
+                          src={urlForImage(technology?.image).url()}
+                          alt={technology.title}
+                          fill
+                        />
+                      </div>
+                    ))}
+                </div>
+                <div className="flex">
+                  {project?.technologies
+                    .slice(
+                      project?.technologies.length / 2,
+                      project?.technologies.length
+                    )
+                    .map((technology) => (
+                      <div
+                        key={technology._id}
+                        className="relative h-8 w-8 opacity-60"
+                      >
+                        <Image
+                          key={technology._id}
+                          className="rounded-full"
+                          src={urlForImage(technology?.image).url()}
+                          alt={technology.title}
+                          fill
+                        />
+                      </div>
+                    ))}
+                </div>
               </div>
 
-              <p className="text-md text-center md:text-left">
-                {project?.summary}
-              </p>
+              <ul className="list-disc space-y-3 ml-5 text-md pt-5">
+                {project?.summary.map((summary, i) => (
+                  <li key={i}>{summary}</li>
+                ))}
+              </ul>
             </div>
           </div>
         ))}

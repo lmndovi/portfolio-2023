@@ -4,8 +4,7 @@ import React from "react";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import BackgroundCircles from "./BackgroundCircles";
 import Image from "next/image";
-import Navbar from "./Navbar";
-import { client } from "@/sanity/lib/client";
+
 import { PageInfo } from "@/typings";
 import { fetcher } from "@/utils/fetchPageInfo";
 import useSWR from "swr";
@@ -17,6 +16,10 @@ type Props = {
 
 export default function Hero() {
   const { data: pageInfo, error } = useSWR(`*[_type == "pageInfo"]`, fetcher);
+  if (error) {
+    console.error("Error fetching data:", error);
+    // You can add additional error handling logic if needed
+  }
 
   const [text] = useTypewriter({
     words: [
@@ -29,16 +32,16 @@ export default function Hero() {
   });
 
   return (
-    <div className="h-screen flex flex-col space-y-7 items-center justify-center text-center overflow-hidden">
+    <div className="h-screen flex flex-col items-center justify-center text-center overflow-hidden">
       <BackgroundCircles />
 
       {pageInfo?.map((info, index) => (
-        <div>
-          <div className="relative mx-auto h-44 w-44 md:h-48 md:w-48 lg:h-60 lg:w-60 rounded-full flex items-center justify-center">
+        <div className="flex-col space-y-5">
+          <div className="relative mx-auto h-48 w-48 md:h-48 md:w-48 lg:h-60 lg:w-60 rounded-full flex items-center justify-center">
             <Image
               src={urlForImage(info?.heroImage).url()}
               alt="Lu Ndovi"
-              className="rounded-full "
+              className="rounded-full object-cover"
               fill
             />
           </div>
@@ -50,9 +53,6 @@ export default function Hero() {
               <span className="mx-2">{text}</span>
               <Cursor cursorColor="blue" />
             </h1>
-            <div className="pt-60 z-50">
-              <Navbar />
-            </div>
           </div>
         </div>
       ))}

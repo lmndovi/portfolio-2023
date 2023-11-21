@@ -18,7 +18,8 @@ export default defineType({
     defineField({
       name: "summary",
       title: "Summary",
-      type: "string",
+      type: "array",
+      of: [{ type: "string" }],
     }),
     defineField({
       name: "image",

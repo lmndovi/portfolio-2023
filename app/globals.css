@@ -7,6 +7,10 @@
     @apply px-4 py-2 border border-[#242424] rounded-full uppercase text-xs tracking-widest text-gray-500 transition-all hover:border-[#1B7DE5]/90 hover:text-[#1B7DE5]/90;
   }
 
+  .heroButtonSmall {
+    @apply px-2 py-1 border border-[#242424] rounded-full uppercase text-xs tracking-widest text-gray-500 transition-all hover:border-[#1B7DE5]/90 hover:text-[#1B7DE5]/90;
+  }
+
   .contactInput {
     @apply outline-none bg-slate-400/10 rounded-sm border-b px-1 md:px-[58px] py-2 border-[#242424] text-gray-500 placeholder-gray-500 transition-all focus:border-[#1B7DE5]/40 focus:text-[#1B7DE5]/90 hover:border-[#1B7DE5]/40;
   }

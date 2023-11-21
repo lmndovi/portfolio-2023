@@ -52,7 +52,7 @@ export interface Project {
   _type: "project";
   image: Image;
   linkToBuild: string;
-  summary: string;
+  summary: string[];
   technologies: Technology[];
 }
 
