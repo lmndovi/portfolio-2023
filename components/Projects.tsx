@@ -35,16 +35,16 @@ export default function Projects() {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="h-screen relative flex flex-col overflow-hidden text-left md:flex-row max-w-full justify-evenly mx-auto items-center z-0"
+      className=" relative flex flex-col overflow-hidden text-left md:flex-row max-w-full justify-evenly mx-auto items-center z-0"
     >
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
         Projects
       </h3>
-      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#1B7DE5]/60">
+      <div className="relative top-20 md:top-48 w-full flex overflow-x-scroll overflow-y-auto snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/10 scrollbar-thumb-[#1B7DE5]/60 ">
         {projects?.map((project, index) => (
           <div
             key={project._id}
-            className="w-screen flex-shrink-0 snap-center flex flex-col space-y-3 items-center p-20 justify-center md:p-44 h-screen mt-2"
+            className="w-screen flex-shrink-0 snap-center flex flex-col space-y-3 items-center p-20 justify-center md:p-44 h-screen mt-10"
           >
             <Link href={project?.linkToBuild}>
               <motion.div
@@ -52,19 +52,19 @@ export default function Projects() {
                 transition={{ duration: 1.2 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="relative h-40 w-72 top-20 mb-5  md:h-60 md:w-96 xl:h-[400px] xl:w-[600px] mt-8"
+                className="relative h-48 w-72 top-20 mb-5  md:h-60 md:w-96 xl:h-[400px] xl:w-[600px]"
               >
                 <Image
                   src={urlForImage(project?.image).url()}
                   alt={project?.title}
-                  className="rounded-md"
+                  className="rounded-md object-cover"
                   fill
                 />
               </motion.div>
             </Link>
 
-            <div className="pt-16 space-y-5 px-0 md:px-10 max-w-6xl">
-              <h4 className="text-2xl font-semibold text-center">
+            <div className="pt-16 space-y-5 px-0 md:px-10 max-w-6xl pb-20">
+              <h4 className="text-lg md:text-2xl font-semibold text-center">
                 <span className="underline decoration-[#1B7DE5]/80">
                   Case Study {index + 1} of {projects.length}:
                 </span>{" "}
@@ -78,7 +78,7 @@ export default function Projects() {
                     .map((technology) => (
                       <div
                         key={technology._id}
-                        className="relative h-8 w-8 opacity-60"
+                        className="relative mx-1 h-5 w-5 md:h-8 md:w-8 opacity-80"
                       >
                         <Image
                           key={technology._id}
@@ -99,7 +99,7 @@ export default function Projects() {
                     .map((technology) => (
                       <div
                         key={technology._id}
-                        className="relative h-8 w-8 opacity-60"
+                        className="relative mx-1 h-5 w-5 md:h-8 md:w-8 opacity-80"
                       >
                         <Image
                           key={technology._id}
@@ -113,7 +113,7 @@ export default function Projects() {
                 </div>
               </div>
 
-              <ul className="list-disc space-y-3 ml-5 text-md pt-5">
+              <ul className="list-disc space-y-3 ml-5 text-md p-5 md:pb-48">
                 {project?.summary.map((summary, i) => (
                   <li key={i}>{summary}</li>
                 ))}
