@@ -1,6 +1,11 @@
 "use client";
 
 import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Keyboard, Pagination, Navigation } from "swiper/modules";
 import { motion } from "framer-motion";
 import ExperienceCard from "./ExperienceCard";
 
@@ -27,11 +32,30 @@ export default function WorkExperience() {
         Experience
       </h3>
 
-      <div className="h-[550px] w-full flex space-x-5 overflow-x-scroll pt-20 px-10 pb-10 snap-both snap-mandatory scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#1B7DE5]/60">
+      {/* <div className="h-[520px] w-96 md:w-full flex space-x-5 overflow-x-scroll pt-20 px-10 pb-10 snap-both snap-mandatory scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#1B7DE5]/60 "> */}
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={30}
+        loop={true}
+        keyboard={{
+          enabled: true,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Keyboard, Pagination, Navigation]}
+        className="mySwiper rounded-2xl"
+      >
+        {" "}
         {experiences?.reverse().map((experience) => (
-          <ExperienceCard key={experience._id} experience={experience} />
+          <SwiperSlide key={experience._id}>
+            <ExperienceCard key={experience._id} experience={experience} />
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
+
+      {/* </div> */}
     </motion.div>
   );
 }
