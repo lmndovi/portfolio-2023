@@ -50,9 +50,14 @@ export default function About() {
           more about me
         </h4>
         {pageInfo?.map((info, index) => (
-          <p key={info._id} className="text-sm sm:text-base">
-            {info.backgroundInformation}
-          </p>
+          <div key={info._id} className="text-sm sm:text-base">
+            {info.backgroundInformation.split("/n").map((paragraph, i) => (
+              <div>
+                <p key={i}>{paragraph}</p>
+                <hr className="my-2 opacity-0" />
+              </div>
+            ))}
+          </div>
         ))}
       </div>
     </motion.div>

@@ -47,20 +47,14 @@ export default function Projects() {
             className="w-screen flex-shrink-0 snap-center flex flex-col space-y-3 items-center p-20 justify-center md:p-44 h-screen mt-10"
           >
             <Link href={project?.linkToBuild}>
-              <motion.div
-                initial={{ y: -300, opacity: 0 }}
-                transition={{ duration: 1.2 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="relative h-48 w-72 top-20 mb-5  md:h-60 md:w-96 xl:h-[400px] xl:w-[600px]"
-              >
+              <div className="relative h-48 w-72 top-20 mb-5  md:h-60 md:w-96 xl:h-[400px] xl:w-[600px]">
                 <Image
                   src={urlForImage(project?.image).url()}
                   alt={project?.title}
                   className="rounded-md object-cover"
                   fill
                 />
-              </motion.div>
+              </div>
             </Link>
 
             <div className="pt-16 space-y-5 px-0 md:px-10 max-w-6xl pb-20">
