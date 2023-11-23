@@ -32,30 +32,29 @@ export default function WorkExperience() {
         Experience
       </h3>
 
-      {/* <div className="h-[520px] w-96 md:w-full flex space-x-5 overflow-x-scroll pt-20 px-10 pb-10 snap-both snap-mandatory scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#1B7DE5]/60 "> */}
-      <Swiper
-        slidesPerView={1}
-        spaceBetween={30}
-        loop={true}
-        keyboard={{
-          enabled: true,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Keyboard, Pagination, Navigation]}
-        className="mySwiper rounded-2xl"
-      >
-        {" "}
-        {experiences?.reverse().map((experience) => (
-          <SwiperSlide key={experience._id}>
-            <ExperienceCard key={experience._id} experience={experience} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-
-      {/* </div> */}
+      <div className="h-[520px] w-full md:w-full flex space-x-5 pt-20 px-10 md: overflow-hidden">
+        <Swiper
+          slidesPerView={1}
+          spaceBetween={30}
+          loop={true}
+          keyboard={{
+            enabled: true,
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          navigation={true}
+          modules={[Keyboard, Pagination, Navigation]}
+          className="mySwiper rounded-2xl "
+        >
+          {" "}
+          {experiences?.reverse().map((experience) => (
+            <SwiperSlide key={experience._id}>
+              <ExperienceCard key={experience._id} experience={experience} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </motion.div>
   );
 }

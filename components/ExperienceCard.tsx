@@ -32,9 +32,12 @@ export default function ExperienceCard({ experience }: Props) {
       <div className="px-0 md:px-10">
         <h4 className="text-2xl font-light">{experience.jobTitle}</h4>
         <p className="font-bold text-lg mt-1">{experience.company}</p>
-        <div className="flex space-x-5 my-2">
+        <div className="flex space-x-2 md:space-x-5 my-2">
           {experience.technologies.map((technology) => (
-            <div key={technology._id} className="relative h-10 w-10">
+            <div
+              key={technology._id}
+              className="relative h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10"
+            >
               <Image
                 key={technology._id}
                 className="rounded-full"
@@ -50,7 +53,7 @@ export default function ExperienceCard({ experience }: Props) {
           {experience.} -{" "}
           {experience.isCurrentlyWorkingHere ? "Present" : experience.dateEnded}
         </p> */}
-        <ul className="list-disc space-y-4 ml-5 text-lg">
+        <ul className="list-disc space-y-4 ml-5 text-sm md:w-full md:text-lg">
           {experience.points.map((point, i) => (
             <li key={i}>{point}</li>
           ))}
