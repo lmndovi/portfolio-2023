@@ -35,8 +35,8 @@ export default function Hero() {
     <div className="h-screen flex flex-col items-center justify-center text-center overflow-hidden">
       <BackgroundCircles />
 
-      {pageInfo?.map((info, index) => (
-        <div className="flex-col space-y-5">
+      {pageInfo?.map((info) => (
+        <div key={info._id} className="flex-col space-y-5">
           <div className="relative mx-auto h-48 w-48 md:h-48 md:w-48 lg:h-60 lg:w-60 rounded-full flex items-center justify-center">
             <Image
               src={urlForImage(info?.heroImage).url()}

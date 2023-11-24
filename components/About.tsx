@@ -34,7 +34,7 @@ export default function About() {
         viewport={{ once: true }}
         className="relative w-48 h-48 sm:h-48 sm:w-48 md:w-80 md:h-[450px] xl:w-[500px] xl:h-[520px] mt-40 sm:mt-32 md:mb-0 flex-shrink-0 xl:mt-40"
       >
-        {pageInfo?.map((info, index) => (
+        {pageInfo?.map((info) => (
           <Image
             key={info._id}
             src={urlForImage(info?.profilePic).url()}
@@ -52,8 +52,8 @@ export default function About() {
         {pageInfo?.map((info, index) => (
           <div key={info._id} className="text-sm sm:text-base">
             {info.backgroundInformation.split("/n").map((paragraph, i) => (
-              <div>
-                <p key={i}>{paragraph}</p>
+              <div key={i}>
+                <p>{paragraph}</p>
                 <hr className="my-2 opacity-0" />
               </div>
             ))}

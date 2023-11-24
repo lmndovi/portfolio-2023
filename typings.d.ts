@@ -5,6 +5,7 @@ export interface Image {
     _ref: string;
     _type: "reference";
   };
+  [key: string]: any; // Add an index signature
 }
 
 export interface PageInfo {
