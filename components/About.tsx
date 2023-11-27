@@ -32,7 +32,7 @@ export default function About() {
         transition={{ duration: 1.2 }}
         whileInView={{ x: 0 }}
         viewport={{ once: true }}
-        className="relative w-48 h-48 sm:h-48 sm:w-48 md:w-80 md:h-[450px] xl:w-[500px] xl:h-[520px] mt-40 sm:mt-32 md:mb-0 flex-shrink-0 xl:mt-40"
+        className="relative w-40 h-40 sm:h-48 sm:w-48 md:w-80 md:h-[450px] xl:w-[500px] xl:h-[520px] mt-40 sm:mt-32 md:mb-0 flex-shrink-0 xl:mt-40"
       >
         {pageInfo?.map((info) => (
           <Image
