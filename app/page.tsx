@@ -7,6 +7,7 @@ export default function Home() {
     <div>
       <Head>
         <title>Lusungu - Portfolio</title>
+        <style>{`body { background-color: rgb(36, 36, 36); }`}</style>
       </Head>
       <Header />
       <section>

@@ -44,7 +44,7 @@ export default function Projects() {
         {projects?.map((project, index) => (
           <div
             key={project._id}
-            className="w-screen flex-shrink-0 snap-center flex flex-col space-y-3 items-center p-20 justify-center md:p-44 h-screen lg:h-fit mt-10 lg:relative lg:-top-60"
+            className="w-screen flex-shrink-0 snap-center flex flex-col space-y-6 items-center p-20 justify-center md:p-44 h-screen lg:h-fit mt-10 lg:relative lg:-top-72"
           >
             <Link href={project?.linkToBuild}>
               <div className="relative h-48 w-72 top-20 mb-5  md:h-60 md:w-96 xl:h-[400px] xl:w-[600px]">

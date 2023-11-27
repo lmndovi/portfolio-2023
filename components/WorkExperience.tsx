@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -13,6 +13,7 @@ import useSWR from "swr";
 import { fetcher } from "@/utils/fetchExperience";
 
 export default function WorkExperience() {
+  const [slidesPerView, setSlidesPerView] = useState(1);
   const { data: experiences, error } = useSWR(
     `*[_type == "experience"] {
         ...,
@@ -20,6 +21,28 @@ export default function WorkExperience() {
 }`,
     fetcher
   );
+
+  useEffect(() => {
+    // Update slidesPerView based on the screen width
+    const handleResize = () => {
+      if (window.innerWidth >= 980) {
+        setSlidesPerView(2);
+      } else {
+        setSlidesPerView(1);
+      }
+    };
+
+    // Initial call
+    handleResize();
+
+    // Attach event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <motion.div
@@ -32,9 +55,9 @@ export default function WorkExperience() {
         Experience
       </h3>
 
-      <div className="h-[520px] w-full md:w-full flex space-x-5 pt-20 px-10 md: overflow-hidden">
+      <div className="relative top-20 md:h-[520px] lg:h-screen w-full md:w-full flex space-x-5 pt-20 px-10 lg:px-0 md:overflow-hidden">
         <Swiper
-          slidesPerView={1}
+          slidesPerView={slidesPerView}
           spaceBetween={30}
           loop={true}
           keyboard={{
