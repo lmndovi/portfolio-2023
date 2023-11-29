@@ -19,13 +19,13 @@ export default function ExperienceCard({ experience }: Props) {
         transition={{ duration: 1.2 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="relative h-20 w-20 "
+        className="relative h-20 w-20"
       >
         <Image
           src={urlForImage(experience?.companyImage).url()}
           alt={experience.company}
           fill
-          className=" rounded-full object-cover xl:w-[120px] xl:h-[120px] object-center"
+          className="rounded-full object-cover xl:w-[120px] xl:h-[120px] object-center"
         />
       </motion.div>
 
@@ -49,10 +49,6 @@ export default function ExperienceCard({ experience }: Props) {
           ))}
         </div>
 
-        {/* <p className="uppercase py-5 text-gray-300">
-          {experience.} -{" "}
-          {experience.isCurrentlyWorkingHere ? "Present" : experience.dateEnded}
-        </p> */}
         <ul className="list-disc space-y-4 ml-5 text-sm md:w-full md:text-lg">
           {experience.points.map((point, i) => (
             <li key={i}>{point}</li>
