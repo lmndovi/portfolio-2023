@@ -31,16 +31,12 @@ export default function Contact() {
         {pageInfo?.map((info, index) => (
           <div className="space-y-5" key={info._id}>
             <div className="flex items-center space-x-4 justify-center">
-              <PhoneIcon className="text-[#1B7DE5]/40 h-7 w-7 animate-pulse " />
-              <p className="text-2xl">+44{info.phoneNumber}</p>
+              <EnvelopeIcon className="text-[#1B7DE5]/40 h-7 w-7 animate-pulse " />
+              <p className="text-2xl">{info.email}</p>
             </div>
             <div className="flex items-center space-x-4 justify-center mx-auto w-96">
               <MapPinIcon className="text-[#1B7DE5]/40 h-7 w-7 animate-pulse " />
               <p className="text-2xl">{info.address}</p>
-            </div>
-            <div className="flex items-center space-x-4 justify-center">
-              <EnvelopeIcon className="text-[#1B7DE5]/40 h-7 w-7 animate-pulse " />
-              <p className="text-2xl">{info.email}</p>
             </div>
           </div>
         ))}
