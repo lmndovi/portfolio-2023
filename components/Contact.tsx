@@ -1,6 +1,6 @@
 "use client";
 
-import { PhoneIcon, MapPinIcon, EnvelopeIcon } from "@heroicons/react/20/solid";
+import { MapPinIcon, EnvelopeIcon } from "@heroicons/react/20/solid";
 import React from "react";
 import { motion } from "framer-motion";
 import Form from "@/components/Form";
@@ -10,12 +10,18 @@ import { fetcher } from "@/utils/fetchPageInfo";
 export default function Contact() {
   const { data: pageInfo, error } = useSWR(`*[_type == "pageInfo"]`, fetcher);
 
+  const emailAddress = "lmndovi@gmail.com";
+
+  const handleClick = () => {
+    window.location.href = `mailto:${emailAddress}`;
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="h-screen relative flex flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center"
+      className="h-screen relative flex flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center mb-20"
     >
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
         Contact
@@ -31,9 +37,15 @@ export default function Contact() {
         {pageInfo?.map((info, index) => (
           <div className="space-y-5" key={info._id}>
             <div className="flex items-center space-x-4 justify-center">
-              <EnvelopeIcon className="text-[#1B7DE5]/40 h-7 w-7 animate-pulse " />
-              <p className="text-2xl">{info.email}</p>
+              <button
+                onClick={handleClick}
+                className="flex items-center space-x-4"
+              >
+                <EnvelopeIcon className="text-[#1B7DE5]/40 h-7 w-7 animate-pulse " />
+                <p className="text-2xl">{info.email}</p>
+              </button>
             </div>
+
             <div className="flex items-center space-x-4 justify-center mx-auto w-96">
               <MapPinIcon className="text-[#1B7DE5]/40 h-7 w-7 animate-pulse " />
               <p className="text-2xl">{info.address}</p>
