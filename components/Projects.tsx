@@ -9,6 +9,7 @@ import { Project } from "@/typings";
 
 import { fetcher } from "@/utils/fetchProjects";
 import useSWR from "swr";
+import { Button } from "./ui/button";
 
 type Props = {
   projects: Project[];
@@ -19,6 +20,7 @@ export default function Projects() {
     `*[_type == "project"] {
   title,
   linkToBuild,
+  linkToRepo,
   summary,
   image,
   technologies[]-> {
@@ -46,6 +48,11 @@ export default function Projects() {
             key={project._id}
             className="w-screen flex-shrink-0 snap-center flex flex-col space-y-6 items-center p-20 justify-center md:p-44 h-screen lg:h-fit mt-10 lg:relative lg:-top-72"
           >
+            <Link href={project?.linkToRepo} className="relative top-20">
+              <Button variant="ghost">
+                <h3>Link to repo</h3>
+              </Button>
+            </Link>
             <Link href={project?.linkToBuild}>
               <div className="relative h-48 w-72 top-20 mb-5  md:h-60 md:w-96 xl:h-[400px] xl:w-[600px]">
                 <Image

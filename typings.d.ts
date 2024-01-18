@@ -53,6 +53,7 @@ export interface Project {
   _type: "project";
   image: Image;
   linkToBuild: string;
+  linkToRepo: string;
   summary: string[];
   technologies: Technology[];
 }

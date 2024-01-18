@@ -11,6 +11,11 @@ export default defineType({
       type: "string",
     }),
     defineField({
+      name: "linkToRepo",
+      title: "Link To Repo",
+      type: "string",
+    }),
+    defineField({
       name: "linkToBuild",
       title: "Link To Build",
       type: "string",
