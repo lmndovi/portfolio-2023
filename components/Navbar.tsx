@@ -1,20 +1,21 @@
 import Link from "next/link";
 import React from "react";
+import { Button } from "./ui/button";
 
 const Navbar = () => {
   return (
     <div>
       <Link href="/about">
-        <button className="heroButtonSmall sm:heroButton">About</button>
+        <Button variant="heroButtonSmall">About</Button>
       </Link>
       <Link href="/projects">
-        <button className="heroButtonSmall sm:heroButton">Projects</button>
+        <Button variant="heroButtonSmall">Projects</Button>
       </Link>
       <Link href="/experience">
-        <button className="heroButtonSmall sm:heroButton">Experience</button>
+        <Button variant="heroButtonSmall">Experience</Button>
       </Link>
       <Link href="/contact">
-        <button className="heroButtonSmall sm:heroButton">Contact</button>
+        <Button variant="heroButtonSmall">Contact</Button>
       </Link>
     </div>
   );
