@@ -49,7 +49,7 @@ export default function Hero() {
             <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[10px] md:tracking-[15px]">
               {info.role}
             </h2>
-            <h1 className="mx-auto text-4xl lg:text-6xl font-semibold px-12">
+            <h1 className="mx-auto text-2xl md:text-4xl lg:text-6xl font-semibold px-12">
               <span className="mx-2">{text}</span>
               <Cursor cursorColor="blue" />
             </h1>

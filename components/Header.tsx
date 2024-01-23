@@ -45,10 +45,6 @@ export default function Header() {
           ))}
         </motion.div>
 
-        <div className="hidden sm:flex items-center justify-center pt-2 ">
-          <Navbar />
-        </div>
-
         <Link href="/contact" legacyBehavior>
           <motion.div
             initial={{
@@ -78,7 +74,7 @@ export default function Header() {
           </motion.div>
         </Link>
       </div>
-      <div className="flex items-center justify-center mt-3 sm:hidden">
+      <div className="flex justify-center items-center">
         <Navbar />
       </div>
     </header>
