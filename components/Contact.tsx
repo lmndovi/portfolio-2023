@@ -26,8 +26,8 @@ export default function Contact() {
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
         Contact
       </h3>
-      <div className="relative top-28 flex flex-col space-y-10">
-        <h4 className="text-3xl md:text-5xl font-semibold text-center mx-auto w-96 md:w-[600px]">
+      <div className="relative top-28 flex flex-col items-center justify-center space-y-10 w-80 md:w-full">
+        <h4 className="text-3xl md:text-5xl font-semibold text-center mx-auto w-full md:w-[600px]">
           Here to bring your ideas to life.{" "}
           <span className="underline decoration-[#1B7DE5]/50 underline-offset-4">
             Let&apos;s talk
