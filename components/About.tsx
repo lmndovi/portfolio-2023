@@ -32,7 +32,7 @@ export default function About() {
         transition={{ duration: 1.2 }}
         whileInView={{ x: 0 }}
         viewport={{ once: true }}
-        className="relative w-40 h-40 sm:h-48 sm:w-48 md:w-80 md:h-[450px] xl:w-[500px] xl:h-[520px] mt-40 sm:mt-32 md:mb-0 flex-shrink-0 xl:mt-40"
+        className="relative w-32 h-32 md:w-80 md:h-[450px] xl:w-[500px] xl:h-[520px] mt-40 sm:mt-32 md:mb-0 flex-shrink-0 xl:mt-40 my-10 md:my-0 top-4 sm:top-8 md:top-0"
       >
         {pageInfo?.map((info) => (
           <Image
@@ -50,7 +50,10 @@ export default function About() {
           more about me
         </h4>
         {pageInfo?.map((info, index) => (
-          <div key={info._id} className="text-sm sm:text-base">
+          <div
+            key={info._id}
+            className="text-sm sm:text-base text-left md:text-center"
+          >
             {info.backgroundInformation.split("/n").map((paragraph, i) => (
               <div key={i}>
                 <p>{paragraph}</p>

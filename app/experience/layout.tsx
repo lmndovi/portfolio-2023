@@ -18,13 +18,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-scroll overflow-x-hidden scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#1B7DE5]/60">
-        <div className="flex justify-center items-center p-5">
+        <div>
           <Navbar />
         </div>
 
         {children}
         <footer className="sticky bottom-5 w-full">
-          <div className="flex items-center justify-center">
+          <div className="md:flex md:items-center md:justify-center hidden">
             <Link href="/" className="cursor-pointer">
               <HomeIcon className="h-10 bg-[#1B7DE5] w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer p-2" />
             </Link>

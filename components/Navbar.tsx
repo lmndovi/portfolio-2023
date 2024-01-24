@@ -35,7 +35,7 @@ const Navbar = () => {
         <DropdownMenu>
           <DropdownMenuTrigger>
             <Button
-              className="text-lg font-semibold text-gray-400 dark:text-gray-300"
+              className="text-lg font-semibold text-gray-300 dark:text-gray-300"
               variant="ghost"
             >
               <svg
