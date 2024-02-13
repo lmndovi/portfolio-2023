@@ -52,7 +52,7 @@ export default function About() {
         {pageInfo?.map((info, index) => (
           <div
             key={info._id}
-            className="text-sm sm:text-base text-left md:text-center"
+            className="text-sm sm:text-base text-left md:text-center lg:text-left"
           >
             {info.backgroundInformation.split("/n").map((paragraph, i) => (
               <div key={i}>

@@ -42,38 +42,48 @@ export default function Projects() {
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
         Projects
       </h3>
-      <div className="relative top-20 md:top-48 w-full flex overflow-x-scroll overflow-y-auto snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/10 scrollbar-thumb-[#1B7DE5]/60 ">
+      <div className="relative top-20 md:top-10 w-full flex overflow-x-scroll overflow-y-auto snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/10 scrollbar-thumb-[#1B7DE5]/60 ">
         {projects?.map((project, index) => (
           <div
             key={project._id}
-            className="w-screen flex-shrink-0 snap-center flex flex-col space-y-6 items-center p-20 justify-center md:p-44 h-screen lg:h-fit mt-10 lg:relative lg:-top-72"
+            className="w-screen flex-shrink-0 snap-center grid grid-cols-2 space-y-6 items-center p-20 justify-center md:p-44 h-screen lg:h-fit mt-10 lg:relative lg:-top-72"
           >
-            <Link
-              href={project?.linkToRepo}
-              className="relative top-56 md:top-20"
-            >
-              <Button variant="ghost">
-                <h3>Link to repo</h3>
-              </Button>
-            </Link>
-            <Link href={project?.linkToBuild}>
-              <div className="relative h-48 w-72 top-56 md:top-20 mb-5  md:h-60 md:w-96 xl:h-[400px] xl:w-[600px]">
-                <Image
-                  src={urlForImage(project?.image).url()}
-                  alt={project?.title}
-                  className="rounded-md object-cover"
-                  fill
-                />
-              </div>
-            </Link>
+            <div id="div1">
+              <Link href={project?.linkToBuild}>
+                <div className="relative h-48 w-72 top-56 md:top-20 mb-5  md:h-60 md:w-96 xl:h-[400px] xl:w-[600px]">
+                  <Image
+                    src={urlForImage(project?.image).url()}
+                    alt={project?.title}
+                    className="rounded-md object-cover"
+                    fill
+                  />
+                </div>
+              </Link>
+            </div>
 
-            <div className="pt-16 space-y-5 px-0 md:px-10 max-w-6xl pb-20 relative top-40">
+            <div
+              id="div2"
+              className="pt-16 space-y-5 px-0 md:px-10 max-w-6xl pb-20 relative top-40"
+            >
               <h4 className="text-lg md:text-2xl font-semibold text-center">
                 <span className="underline decoration-[#1B7DE5]/80">
                   Case Study {index + 1} of {projects.length}:
                 </span>{" "}
                 {project?.title}
               </h4>
+              <div className="flex justify-center items-center space-x-3">
+                <Link href={project?.linkToBuild}>
+                  <Button variant="heroButtonSmall">
+                    <h3>Deployed site</h3>
+                  </Button>
+                </Link>
+                <Link href={project?.linkToRepo}>
+                  <Button variant="heroButtonSmall">
+                    <h3>Link to repo</h3>
+                  </Button>
+                </Link>
+              </div>
+
               {/* Tech Used */}
               <div className="flex flex-col space-y-3 items-center justify-center">
                 <div className="flex">
