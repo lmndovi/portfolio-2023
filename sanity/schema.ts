@@ -5,7 +5,8 @@ import experience from "./schemas/experience";
 import project from "./schemas/project";
 import pageInfo from "./schemas/pageInfo";
 import social from "./schemas/social";
+import language from "./schemas/language";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [pageInfo, project, experience, skill, social],
+  types: [pageInfo, project, experience, skill, social, language],
 };
