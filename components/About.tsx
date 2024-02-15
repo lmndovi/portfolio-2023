@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { PageInfo } from "@/typings";
-import { client } from "@/sanity/lib/client";
+
 import useSWR from "swr";
 import { fetcher } from "@/utils/fetchPageInfo";
 import { urlForImage } from "@/sanity/lib/image";
@@ -14,7 +14,26 @@ type Props = {
 };
 
 export default function About() {
-  const { data: pageInfo, error } = useSWR(`*[_type == "pageInfo"]`, fetcher);
+  const { data: pageInfo, error } = useSWR(
+    `*[_type == "pageInfo"]{
+  name,
+  backgroundInformation,
+  email,
+  address,
+  phoneNumber,
+  heroImage,
+  profilePic,
+  languages[]->{
+    title,
+    image
+  },
+  technologies[]-> {
+    title,
+    image
+  }  
+}`,
+    fetcher
+  );
 
   return (
     <motion.div
@@ -44,11 +63,12 @@ export default function About() {
           />
         ))}
       </motion.div>
-      <div className="space-y-6 px-0 md:px-10 md:mt-28 max-h-[450px]">
+      <div className="space-y-6 px-0 md:px-10 md:mt-28 max-h-[500px]">
         <h4 className="text-3xl font-semibold">
           A <span className="underline decoration-[#1B7DE5]/70">little</span>{" "}
           more about me
         </h4>
+
         {pageInfo?.map((info, index) => (
           <div
             key={info._id}
@@ -60,6 +80,50 @@ export default function About() {
                 <hr className="my-2 opacity-0" />
               </div>
             ))}
+            {/* Adding languages*/}
+            <div className="flex-col space-y-2">
+              <h3 className="text-center text-gray-400 tracking-widest text-sm uppercase ">
+                Languages
+              </h3>
+              <div className="flex items-center justify-center">
+                {info?.languages.map((language) => (
+                  <div
+                    key={language._id}
+                    className="relative mx-1 h-5 w-5 md:h-8 md:w-8 opacity-80"
+                  >
+                    <Image
+                      key={language._id}
+                      className="rounded-full"
+                      src={urlForImage(language?.image).url()}
+                      alt={language.title}
+                      fill
+                    />
+                  </div>
+                ))}
+              </div>
+              {/* Adding technologies */}
+              <div className="flex-col space-y-2">
+                <h3 className="text-center text-gray-400 tracking-widest text-sm uppercase ">
+                  Technologies
+                </h3>
+                <div className="flex items-center justify-center">
+                  {info?.technologies.map((technology) => (
+                    <div
+                      key={technology._id}
+                      className="relative mx-1 h-5 w-5 md:h-8 md:w-8 opacity-80"
+                    >
+                      <Image
+                        key={technology._id}
+                        className="rounded-full"
+                        src={urlForImage(technology?.image).url()}
+                        alt={technology.title}
+                        fill
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         ))}
       </div>

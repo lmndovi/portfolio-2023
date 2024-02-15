@@ -51,5 +51,17 @@ export default defineType({
         hotspot: true,
       },
     }),
+    defineField({
+      name: "languages",
+      title: "Languages",
+      type: "array",
+      of: [{ type: "reference", to: { type: "language" } }],
+    }),
+    defineField({
+      name: "technologies",
+      title: "Technologies",
+      type: "array",
+      of: [{ type: "reference", to: { type: "skill" } }],
+    }),
   ],
 });

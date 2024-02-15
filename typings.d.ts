@@ -19,13 +19,21 @@ export interface PageInfo {
   name: string;
   phoneNumber: string;
   profilePic: Image;
+  languages: Language[];
+  technologies: Technology[];
+}
+
+export interface Language {
+  _id: string;
+  _type: "language";
+  image: Image;
+  title: string;
 }
 
 export interface Technology {
   _id: string;
   _type: "skill";
   image: Image;
-  progress: number;
   title: string;
 }
 
@@ -33,7 +41,6 @@ export interface Skill {
   _id: string;
   _type: "skill";
   image: Image;
-  progress: number;
   title: string;
 }
 
