@@ -45,11 +45,11 @@ export default function Projects() {
         {projects?.map((project, index) => (
           <div
             key={project._id}
-            className="w-screen flex-shrink-0 snap-center grid grid-cols-2 space-y-6 items-center p-20 justify-center md:p-44 h-screen lg:h-fit mt-10 lg:relative lg:-top-72"
+            className="w-screen flex-shrink-0 snap-center md:grid md:grid-cols-2 space-y-6 items-center p-20 justify-center md:p-44 h-screen lg:h-fit mt-10 lg:relative lg:-top-72"
           >
             <div id="div1">
               <Link href={project?.linkToBuild}>
-                <div className="relative h-48 w-72 top-56 md:top-20 mb-5  md:h-60 md:w-96 xl:h-[400px] xl:w-[600px]">
+                <div className="relative h-48 w-72 md:top-20 mb-5  md:h-60 md:w-96 xl:h-[400px] xl:w-[600px]">
                   <Image
                     src={urlForImage(project?.image).url()}
                     alt={project?.title}
@@ -62,7 +62,7 @@ export default function Projects() {
 
             <div
               id="div2"
-              className="pt-16 space-y-5 px-0 md:px-10 max-w-6xl pb-20 relative top-40"
+              className="md:pt-16 space-y-5 px-0 md:px-10 max-w-6xl pb-20 relative md:top-40"
             >
               <h4 className="text-lg md:text-2xl font-semibold text-center">
                 <span className="underline decoration-[#1B7DE5]/80">

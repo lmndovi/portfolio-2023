@@ -72,7 +72,7 @@ export default function About() {
         {pageInfo?.map((info, index) => (
           <div
             key={info._id}
-            className="text-sm sm:text-base text-left md:text-center lg:text-left"
+            className="text-sm sm:text-base text-center lg:text-left"
           >
             {info.backgroundInformation.split("/n").map((paragraph, i) => (
               <div key={i}>
@@ -102,7 +102,7 @@ export default function About() {
                 ))}
               </div>
               {/* Adding technologies */}
-              <div className="flex-col space-y-2">
+              <div className="flex-col space-y-2 pb-10">
                 <h3 className="text-center text-gray-400 tracking-widest text-sm uppercase ">
                   Technologies
                 </h3>
