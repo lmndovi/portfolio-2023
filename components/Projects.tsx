@@ -82,7 +82,7 @@ export default function Projects() {
               </div>
 
               {/* Tech Used */}
-              <div className="flex flex-col space-y-3 items-center justify-center">
+              <div className="flex flex-col space-y-3 items-center justify-center md:py-5">
                 <div className="flex">
                   {project?.technologies
                     .slice(0, project?.technologies.length / 2)
@@ -99,7 +99,7 @@ export default function Projects() {
                             alt={technology.title}
                             fill
                           />
-                          <p className="opacity-0 hover:opacity-100 transition duration-700 ease-in-out">
+                          <p className="opacity-0 hover:opacity-100 transition duration-700 ease-in-out uppercase tracking-wider text-[#ff5800] text-xs pt-24">
                             {technology.title}
                           </p>
                         </div>
@@ -125,7 +125,7 @@ export default function Projects() {
                             alt={technology.title}
                             fill
                           />
-                          <p className="opacity-0 hover:opacity-100  transition duration-700 ease-in-out py-10 uppercase tracking-wider text-gray-300">
+                          <p className="opacity-0 hover:opacity-100 py-10 transition duration-700 ease-in-out uppercase tracking-wider text-[#ff5800] text-xs">
                             {technology.title}
                           </p>
                         </div>
