@@ -41,30 +41,28 @@ export default function Projects() {
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
         Projects
       </h3>
-      <div className="relative top-20 md:top-10 w-full flex overflow-x-scroll overflow-y-auto snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/10 scrollbar-thumb-[#1B7DE5]/60 ">
+      <div className="relative top-20 md:top-10 w-full flex md:flex-col overflow-x-scroll overflow-y-auto snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/10 scrollbar-thumb-[#1B7DE5]/60 md:pt-36 md:-space-y-56">
         {projects?.map((project, index) => (
           <div
             key={project._id}
-            className="w-screen flex-shrink-0 snap-center md:grid md:grid-cols-2 space-y-6 items-center p-20 justify-center md:p-44 h-screen lg:h-fit mt-10 lg:relative lg:-top-72"
+            className="w-screen flex-shrink-0 snap-center md:grid md:grid-cols-2 space-y-6 items-center p-20 justify-center  h-screen lg:h-fit mt-10 lg:relative lg:-top-72"
           >
-            <div id="div1">
-              <Link href={project?.linkToBuild}>
-                <div className="relative h-48 w-72 md:top-20 mb-5  md:h-60 md:w-96 xl:h-[400px] xl:w-[600px]">
-                  <Image
-                    src={urlForImage(project?.image).url()}
-                    alt={project?.title}
-                    className="rounded-md object-cover"
-                    fill
-                  />
-                </div>
-              </Link>
+            <div id="div1" className="flex justify-center items-center">
+              <div className="relative h-48 w-72 md:top-20 mb-5  md:h-60 md:w-96 xl:h-[400px] xl:w-[600px]">
+                <Image
+                  src={urlForImage(project?.image).url()}
+                  alt={project?.title}
+                  className="rounded-md object-cover"
+                  fill
+                />
+              </div>
             </div>
 
             <div
               id="div2"
               className="md:pt-16 space-y-5 px-0 md:px-10 max-w-6xl pb-20 relative md:top-40"
             >
-              <h4 className="text-lg md:text-2xl font-semibold text-center">
+              <h4 className="text-lg md:text-2xl font-semibold text-center text-gray-300">
                 <span className="underline decoration-[#1B7DE5]/80">
                   Case Study {index + 1} of {projects.length}:
                 </span>{" "}
@@ -126,7 +124,7 @@ export default function Projects() {
                 </div>
               </div>
 
-              <ul className="list-disc space-y-3 ml-5 text-md p-5 md:pb-48">
+              <ul className="list-disc space-y-3 ml-5 text-md p-5 md:pb-48 text-gray-300 ">
                 {project?.summary.map((summary, i) => (
                   <li key={i}>{summary}</li>
                 ))}
