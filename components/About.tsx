@@ -82,43 +82,53 @@ export default function About() {
             ))}
             {/* Adding languages*/}
             <div className="flex-col space-y-2">
-              <h3 className="text-center text-gray-400 tracking-widest text-sm uppercase ">
+              <h3 className="text-left text-gray-500 tracking-widest text-md uppercase ">
                 Languages
               </h3>
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-start">
                 {info?.languages.map((language) => (
                   <div
                     key={language._id}
-                    className="relative mx-1 h-5 w-5 md:h-8 md:w-8 opacity-80"
+                    className="relative mx-1 h-5 w-5 md:h-8 md:w-8 opacity-80 mb-5"
                   >
-                    <Image
-                      key={language._id}
-                      className="rounded-full"
-                      src={urlForImage(language?.image).url()}
-                      alt={language.title}
-                      fill
-                    />
+                    <div>
+                      <Image
+                        key={language._id}
+                        className="rounded-full"
+                        src={urlForImage(language?.image).url()}
+                        alt={language.title}
+                        fill
+                      />
+                      <p className="opacity-0 hover:opacity-100 py-10 transition duration-700 ease-in-out uppercase tracking-wider text-[#ff5800] text-xs">
+                        {language.title}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
               {/* Adding technologies */}
               <div className="flex-col space-y-2 pb-10">
-                <h3 className="text-center text-gray-400 tracking-widest text-sm uppercase ">
+                <h3 className="text-left text-gray-500 tracking-widest text-md uppercase ">
                   Technologies
                 </h3>
-                <div className="flex items-center justify-center">
+                <div className="flex items-center justify-start">
                   {info?.technologies.map((technology) => (
                     <div
                       key={technology._id}
-                      className="relative mx-1 h-5 w-5 md:h-8 md:w-8 opacity-80"
+                      className="relative mx-1 h-5 w-5 md:h-8 md:w-8 opacity-80 cursor-pointer"
                     >
-                      <Image
-                        key={technology._id}
-                        className="rounded-full"
-                        src={urlForImage(technology?.image).url()}
-                        alt={technology.title}
-                        fill
-                      />
+                      <div>
+                        <Image
+                          key={technology._id}
+                          className="rounded-full"
+                          src={urlForImage(technology?.image).url()}
+                          alt={technology.title}
+                          fill
+                        />
+                        <p className="opacity-0 hover:opacity-100 py-10 transition duration-700 ease-in-out uppercase tracking-wider text-[#ff5800] text-xs">
+                          {technology.title}
+                        </p>
+                      </div>
                     </div>
                   ))}
                 </div>

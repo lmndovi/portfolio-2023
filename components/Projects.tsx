@@ -91,13 +91,18 @@ export default function Projects() {
                         key={technology._id}
                         className="relative mx-1 h-5 w-5 md:h-8 md:w-8 opacity-80"
                       >
-                        <Image
-                          key={technology._id}
-                          className="rounded-full"
-                          src={urlForImage(technology?.image).url()}
-                          alt={technology.title}
-                          fill
-                        />
+                        <div>
+                          <Image
+                            key={technology._id}
+                            className="rounded-full"
+                            src={urlForImage(technology?.image).url()}
+                            alt={technology.title}
+                            fill
+                          />
+                          <p className="opacity-0 hover:opacity-100 transition duration-700 ease-in-out">
+                            {technology.title}
+                          </p>
+                        </div>
                       </div>
                     ))}
                 </div>
@@ -112,13 +117,18 @@ export default function Projects() {
                         key={technology._id}
                         className="relative mx-1 h-5 w-5 md:h-8 md:w-8 opacity-80"
                       >
-                        <Image
-                          key={technology._id}
-                          className="rounded-full"
-                          src={urlForImage(technology?.image).url()}
-                          alt={technology.title}
-                          fill
-                        />
+                        <div>
+                          <Image
+                            key={technology._id}
+                            className="rounded-full"
+                            src={urlForImage(technology?.image).url()}
+                            alt={technology.title}
+                            fill
+                          />
+                          <p className="opacity-0 hover:opacity-100  transition duration-700 ease-in-out py-10 uppercase tracking-wider text-gray-300">
+                            {technology.title}
+                          </p>
+                        </div>
                       </div>
                     ))}
                 </div>
