@@ -115,7 +115,7 @@ export default function About() {
                   {info?.technologies.map((technology) => (
                     <div
                       key={technology._id}
-                      className="relative mx-1 h-5 w-5 md:h-8 md:w-8 opacity-80 cursor-pointer"
+                      className="relative mx-1 h-5 w-5 md:h-8 md:w-8 opacity-80"
                     >
                       <div>
                         <Image
